@@ -3,6 +3,7 @@
 <p align="center">
   <b>一个运行在浏览器本地的 API 调试工具，完美解决跨域(CORS)限制。</b>
 </p>
+![img.png](img.png)
 
 ## 📖 简介
 
