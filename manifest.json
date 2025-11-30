@@ -1,0 +1,15 @@
+{
+  "manifest_version": 3,
+  "name": "LiteFox - 专业接口调试",
+  "version": "2.0",
+  "description": "支持多标签页管理、智能cURL导入的静态接口调试工具",
+  "action": {
+    "default_title": "打开 LiteFox"
+  },
+  "background": {
+    "service_worker": "background.js"
+  },
+  "host_permissions": [
+    "<all_urls>"
+  ]
+}

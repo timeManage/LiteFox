@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <title>LiteFox - API Client</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="app-container">
+        <!-- 左侧：侧边栏 -->
+        <div class="sidebar">
+            <div class="sidebar-header">
+                <h3>LiteFox</h3>
+                <button id="addReqBtn" class="icon-btn" title="新建请求">+</button>
+            </div>
+            <div id="requestList" class="request-list"></div>
+        </div>
+
+        <!-- 右侧：主内容 -->
+        <div class="main-content">
+            
+            <!-- 顶部工具栏 -->
+            <div class="top-bar">
+                <div class="request-input-group">
+                    <select id="method">
+                        <option value="GET">GET</option>
+                        <option value="POST">POST</option>
+                        <option value="PUT">PUT</option>
+                        <option value="DELETE">DELETE</option>
+                        <option value="PATCH">PATCH</option>
+                    </select>
+                    <input type="text" id="url" placeholder="输入接口地址 (http://...)">
+                    <button id="sendBtn" class="primary-btn">发送</button>
+                    <button id="saveBtn" class="secondary-btn">保存</button>
+                </div>
+                <!-- 主题切换按钮 -->
+                <button id="themeBtn" class="icon-btn" title="切换日夜模式">
+                    🌗
+                </button>
+            </div>
+
+            <!-- 中间工作区 (Params / Response) -->
+            <div class="work-area">
+                <!-- 左半：请求配置 -->
+                <div class="request-panel">
+                    <div class="tabs">
+                        <div class="tab active" data-target="tab-params">Params</div>
+                        <div class="tab" data-target="tab-headers">Headers</div>
+                        <div class="tab" data-target="tab-body">Body</div>
+                        <div class="tab highlight" data-target="tab-curl">cURL 导入</div>
+                    </div>
+
+                    <div class="tab-content">
+                        <div id="tab-params" class="panel active">
+                            <div class="key-value-list" id="paramsList"></div>
+                            <button id="addParamBtn" class="add-row-btn">+ 添加参数</button>
+                        </div>
+                        <div id="tab-headers" class="panel">
+                            <div class="key-value-list" id="headersList"></div>
+                            <button id="addHeaderBtn" class="add-row-btn">+ 添加 Header</button>
+                        </div>
+                        <div id="tab-body" class="panel">
+                            <div class="radio-group">
+                                <label><input type="radio" name="bodyType" value="none" checked> none</label>
+                                <label><input type="radio" name="bodyType" value="json"> json</label>
+                                <label><input type="radio" name="bodyType" value="raw"> raw</label>
+                            </div>
+                            <textarea id="bodyContent" placeholder="JSON 或 纯文本..."></textarea>
+                        </div>
+                        <div id="tab-curl" class="panel">
+                            <textarea id="curlInput" placeholder="在此粘贴 cURL 命令..."></textarea>
+                            <button id="importCurlBtn" class="primary-btn full-width" style="width:100%">解析并填充</button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 右半：可视化响应 -->
+                <div class="response-panel">
+                    <div class="res-header">
+                        <span>Response Body</span>
+                        <div class="res-meta">
+                            <span id="resStatus">---</span>
+                            <span id="resTime">0ms</span>
+                        </div>
+                    </div>
+                    <div class="res-body-container">
+                        <pre id="resBody"></pre>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 底部：实际报文调试台 -->
+            <div class="debug-drawer collapsed" id="debugDrawer">
+                <div id="resizeHandle" class="resize-handle"></div>
+                <div class="drawer-header" id="drawerToggle">
+                    <span>实际 HTTP 报文预览 (Debug)</span>
+                    <span class="toggle-icon">▼</span>
+                </div>
+                <div class="drawer-content">
+                    <div class="debug-col">
+                        <div class="debug-title">Actual Request (Client Sent)</div>
+                        <pre id="debugReq">Waiting for request...</pre>
+                    </div>
+                    <div class="debug-col">
+                        <div class="debug-title">Actual Response (Headers & Body)</div>
+                        <pre id="debugRes">Waiting for response...</pre>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+    <script src="main.js"></script>
+</body>
+</html>
