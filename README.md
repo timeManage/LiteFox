@@ -30,7 +30,7 @@
 
 1.  **克隆或下载本项目**到本地：
     ```bash
-    git clone https://github.com/your-username/litefox.git
+    git clone https://github.com/timeManage/ListFox.git
     ```
 2.  打开 Chrome 浏览器，在地址栏输入：`chrome://extensions/`
 3.  在右上角开启 **“开发者模式” (Developer mode)** 开关。
