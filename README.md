@@ -4,7 +4,7 @@
   <b>一个运行在浏览器本地的 API 调试工具，完美解决跨域(CORS)限制。</b>
 </p>
 
-![img.png](img.png)
+![img.jpg](img.jpg)
 
 ## 📖 简介
 
